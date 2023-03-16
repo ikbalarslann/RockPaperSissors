@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>RockPaperScisors</title>
+    </head>
+    <body>
+        <script>
+            let _playerScore=0;
+            let _computerScore=0;
+let rock='rock',
+    paper='paper',
+    scissors='scissors';
+function getComputerChoice()
+
+
+{
+    let resoult;
+    let i=Math.floor(Math.random()*3) ;
+    switch (i)
+    {
+    case 0:
+        resoult=rock;
+    break;  
+    case 1:
+        resoult=paper;
+    break;  
+    case 2:
+        resoult=scissors;
+    break;  
+    }
+    return resoult;
+}
+        
+function getPlayerChoice()
+        {
+          let playerchoice =  prompt('What is your Choice','rock');
+          if(playerchoice!=null)
+          {
+            return playerchoice.toLowerCase();
+          }
+        }
+        
+        const playerSelection =getPlayerChoice();
+        const computerSelection = getComputerChoice();
+function Conditions(a,b)
+{
+    switch(a,b)
+{
+    case rock,scissors:
+        return 'player';
+        break;
+        case rock,paper:
+        return 'computer';
+        break;
+        case rock,rock:
+        return 'none of you';
+        break;
+        case paper,scissors:
+        return 'computer';
+        break;
+        case paper,paper:
+        return 'none of you';
+        break;
+        case paper,rock:
+        return 'player';
+        break;
+        case scissors,scissors:
+        return 'none of you';
+        break;
+        case scissors,paper:
+        return 'player';
+        break;
+        case scissors,rock:
+        return 'computer';
+        break;
+}
+      
+}
+
+
+
+
+function playRound(playerSelection,computerSelection)
+{
+    let winner =Conditions(playerSelection,computerSelection);
+    
+if(winner==="player")
+{
+    _playerScore++;
+}
+else if(winner==="computer")
+{
+_computerScore++;
+}
+return winner +" win the hand";
+}
+
+function game()
+{
+    for(let i = 0; i < 5; i++)
+    {
+if((_playerScore||_computerScore)===3)
+{
+return _playerScore===3?"player Wins the game":"computer Wins the game";
+}
+else
+{
+playRound();
+}
+    }
+}
+
+
+
+      </script>
+    </body>
+
+    </html>
