@@ -78,10 +78,7 @@ function Conditions(a,b)
       
 }
 
-
-
-
-function playRound(playerSelection,computerSelection)
+function playRound()
 {
     let winner =Conditions(playerSelection,computerSelection);
     
@@ -96,13 +93,15 @@ _computerScore++;
 return winner +" win the hand";
 }
 
+
+
 function game()
 {
     for(let i = 0; i < 5; i++)
     {
 if((_playerScore||_computerScore)===3)
 {
-return _playerScore===3?"player Wins the game":"computer Wins the game";
+return _playerScore===3 ? "player Wins the game":"computer Wins the game";
 }
 else
 {
@@ -112,6 +111,10 @@ playRound();
 }
 
 
+
+
+console.log(game());
+console.log(_playerScore);
 
       </script>
     </body>
