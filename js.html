@@ -5,15 +5,34 @@
         <title>RockPaperScisors</title>
     </head>
     <body>
-        <script>
-            let _playerScore=0;
-            let _computerScore=0;
+      <script>
+
+let _playerScore=0;
+let _computerScore=0;            
+
 let rock='rock',
     paper='paper',
     scissors='scissors';
+
+let playerSelection;
+let computerSelection;
+
+
+function getPlayerChoice()
+        {
+          let playerchoice =  prompt('What is your Choice','rock');
+          if(playerchoice==='rock'||playerchoice==='paper'||playerchoice==='scissors')
+          {
+            return playerchoice.toLowerCase();
+          }
+          else
+          {
+console.log('incorrect answer rewrite your choice !!!');
+getPlayerChoice();
+
+          }
+        }
 function getComputerChoice()
-
-
 {
     let resoult;
     let i=Math.floor(Math.random()*3) ;
@@ -31,18 +50,6 @@ function getComputerChoice()
     }
     return resoult;
 }
-        
-function getPlayerChoice()
-        {
-          let playerchoice =  prompt('What is your Choice','rock');
-          if(playerchoice!=null)
-          {
-            return playerchoice.toLowerCase();
-          }
-        }
-        
-        const playerSelection =getPlayerChoice();
-        const computerSelection = getComputerChoice();
 function Conditions(a,b)
 {
     switch(a,b)
@@ -77,7 +84,6 @@ function Conditions(a,b)
 }
       
 }
-
 function playRound()
 {
     let winner =Conditions(playerSelection,computerSelection);
@@ -92,29 +98,49 @@ _computerScore++;
 }
 return winner +" win the hand";
 }
+function writeWinner()
+{
+    let winner;
 
+    if(_playerScore===3)
+    {
+          winner = 'player';
+    }
+    else if(_computerScore===3)
+    {
+          winner = 'computer';
+    }
+    else
+    {
+          winner = 'nobody';
 
+    }
+    return winner;
+}
 
 function game()
 {
-    for(let i = 0; i < 5; i++)
-    {
-if((_playerScore||_computerScore)===3)
-{
-return _playerScore===3 ? "player Wins the game":"computer Wins the game";
-}
-else
-{
-playRound();
-}
+    
+    for(let i=0; i<5;i++)
+    {  
+
+       playerSelection = getPlayerChoice();
+       computerSelection=getComputerChoice();
+
+       console.log('player choice = '+playerSelection);
+       console.log('computer choice = '+computerSelection);
+
+       console.log(playRound());
+       
     }
+
+    console.log(' ');
+    console.log('game is end '+writeWinner()+' win the game');
 }
-
-
 
 
 console.log(game());
-console.log(_playerScore);
+
 
       </script>
     </body>
