@@ -8,18 +8,6 @@ let rock='rock',
 let playerSelection=null;
 let computerSelection;
 
-
-
-function getPlayerChoice()
-        {
-            let playerchoice;
-
-           
-
-                  
-        if(playerchoice!==null)  return playerchoice;
-              
-        }
 function getComputerChoice()
 {
     let resoult;
@@ -52,8 +40,7 @@ function Conditions(a,b)
         return 'computer';
       }
 }
-      
-
+ 
 function playRound()
 {
     let winner =Conditions(playerSelection,computerSelection);
@@ -84,13 +71,13 @@ if(_playerScore===15)
 return winner +" win the hand";
 
 }
-
-
 function game()
 {
         console.log(`player : ${playerSelection}`);
         console.log(`computer : ${computerSelection}`);
         div.textContent=playRound();
+        pcohice.textContent=`player : ${playerSelection}`;
+        ccohice.textContent=`computer : ${computerSelection}`;
         pscore.textContent=`player score = ${_playerScore}`;
         cscore.textContent=`computer score = ${_computerScore}`;
 
@@ -114,16 +101,11 @@ function game()
 
 
 
-
-
-
-
-
-
-
-
-
 const buttons=document.querySelectorAll('.btn');
+
+const pcohice=document.querySelector('.pchoice');
+const ccohice=document.querySelector('.ccohice');
+
 const div = document.querySelector('.resoult');
 
 const pscore=document.querySelector('.pscore');
